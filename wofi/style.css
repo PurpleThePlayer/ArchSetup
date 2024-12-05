@@ -1,0 +1,145 @@
+/* theme = /usr/share/themes/Sunset-Compact-Dark/gtk-3.0/gtk-dark.css */
+
+
+* {
+  /*font-family: 'CaskaydiaCove Nerd Font', monospace;*/
+  font-size: 16px;
+}
+
+
+/* Window */
+window {
+  margin: 0px;
+  padding: 10px;
+  border: 2px solid #690000;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/*Inner Box */
+#inner-box {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+/*  background-color: transparent;*/
+}
+
+#outer-box {
+  margin: 5px;
+  padding: 10px;
+  border:/* 2px solid;*/
+/*  background-color: transparent;*/
+}
+
+/*#scroll {
+  margin: 0px;
+  padding: 10px;
+  border: none;
+  background-color: #690000;
+}*/
+
+#input {
+  margin: 5px 20px;
+  padding: 5px;
+  border: 1px solid #690000;
+/*  border: #ffffff;
+  border-radius: 0.1em;*/
+  color: #990000;
+  background-color: transparent;
+}
+
+#input:focus {
+  border: 2px solid #990000;
+/*  background-color: #f0f8ff !important;*/
+  outline: none;
+  box-shadow: none;
+}
+
+/*
+#input image {
+    border: none;
+    color: @red;
+}
+
+#input * {
+  outline: 4px solid @red!important;
+}
+*/
+
+
+/* Text */
+
+#text {
+  margin: 5px;
+  border: #690000;
+  color: #690000;
+/*  transition: all 0.3s ease;          *//* Smooth changes *//*
+  text-shadow: 2px 2px 4px #990000;   *//* Black shadow behind the text */
+}
+
+#entry {
+  background-color: transparent;
+}
+
+#entry arrow {
+/*  border: #ffffff;*/
+  color: #690000;
+}
+
+
+/* Selected Entry */
+#entry:selected {
+  border: 0.11em solid #690000;
+  border-radius: 5px;
+  transition: all 0.3s ease;          /* Smooth changes */
+  text-shadow: 2px 2px 4px #000000;   /* Black shadow behind the text */
+}
+
+#entry:selected #text {
+  color: #990000;
+
+#entry list {
+  background-color: transparent;
+
+}
+/*
+
+#entry:drop(active) {
+  background-color: #000000;
+}
+*/
+
+
+/*
+
+CSS SELECTORS
+
+Any GTK widget can be selected by using the name of its CSS node, these however might change with updates and are not guaranteed to stay constant. Wofi also provides certain widgets with names and classes which can be referenced from CSS to give access to the most important widgets easily. wofi(7) contains the current widget layout used by wofi so if you want to get into CSS directly using GTK widget names look there for info.
+
+#window
+    The name of the window itself.
+#outer-box
+    The name of the box that contains everything.
+#input
+    The name of the search bar.
+#scroll
+    The name of the scrolled window containing all of the entries.
+#inner-box
+    The name of the box containing all of the entries.
+#img
+    The name of all images in entries displayed in image mode.
+#text
+    The name of all the text in entries.
+#unselected
+    The name of all entries currently unselected. A better way of doing this is to do #entry and combine that with #entry:selected
+#selected
+    The name of all entries currently selected. A better way of doing this is to do #entry:selected
+.entry
+    The class attached to all entries. This is attached to the inside property box and is old, you probably want #entry instead
+#entry
+    The name of all entries.
+#expander-box
+    The name of all boxes shown when expanding entries with multiple actions
+*/
+

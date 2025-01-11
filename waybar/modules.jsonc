@@ -1,0 +1,293 @@
+{
+  "hyprland/workspaces#kanji": {
+    "disable-scroll": true,
+    "show-special": true,
+    "all-outputs": true,
+    "format": "{icon}",
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "special": []
+    },
+    "format-icons": {
+
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十",
+      "special": ""
+    }
+  },
+
+  "hyprland/workspaces#roman": {
+    "disable-scroll": true,
+    "show-special": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    },
+    "format-icons": {
+      "1": "I",
+      "2": "II",
+      "3": "III",
+      "4": "IV",
+      "5": "V",
+      "6": "VI",
+      "7": "VII",
+      "8": "VIII",
+      "9": "IX",
+      "10": "X"
+    }
+  },
+
+
+
+
+  "group/details": {
+	"orientation": "inherit",
+	"drawer": {
+		"transition-duration": 500,
+		"transition-left-to-right": true
+        },
+	"modules": [
+		"cpu",
+		"memory#1",
+        "disk"
+    ]
+},
+
+  "group/clock": {
+	"orientation": "inherit",
+	"modules": [
+		"clock",
+        "clock#1",
+		"clock#2"
+	]
+},
+  "clock#1": {
+    "locale": "ja_JP.UTF-8 ",
+    "format": "| <b>{:%A}</b> |",
+    "format-alt": "| <b>{:L%A}</b> |",
+    "tooltip-format": "{:L%A}"
+
+  },
+
+    "clock#2": {
+    "locale": "ja_JP.UTF-8 ",
+    "format": "<b>{:L%a}</b> |",
+    "tooltip-format": "月曜日\n火曜日\n水曜日\n木曜日\n金曜日\n土曜日\n日曜日"
+  },
+
+  "clock": {
+//    "tooltip-format": "<tt><small>{calendar}</small></tt>",  /* <big>{:%Y %B}</big> */
+    "tooltip-format": "<span size='12pt' font='Jetbrains Mono'>{calendar}</span>",
+//    "tooltip-format": "\n<span size='12pt' font='WenQuanYi Zen Hei Mono'>{calendar}</span>",
+//    "locale": "ja_JP.UTF-8 ",
+    "locale": "en_GB.UTF-8",
+    "format": " <b>{:%H:%M:%S}</b>",
+    "format-alt": " <b>{:%Y-%m-%d}</b>",
+    "interval": 1,
+    "calendar": {
+//      "mode": "year"
+      "mode-mon-col": 3,
+//      "weeks-pos": "left",
+//      "on-scroll": 1,
+//      "on-click-right": "mode",
+      "format": {
+        "months": "<span color='#990000'><b>{}</b></span>",
+        "days": "<span color='#808080'><b>{}</b></span>",
+//        "weeks": "<span color='#690000'>{:%W}</span>",
+        "weekdays": "<span color='#690000'><b>{}</b></span>",
+        "today": "<span color='#990000'><b><u>{}</u></b></span>"
+      }
+    },
+      "actions": {
+      "on-click-right": "mode",
+//      "on-click-forward": "tz_up",
+//      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+	}
+  },
+
+
+   "group/tray2": {
+	"orientation": "inherit",
+	"drawer": {
+		"transition-duration": 500,
+		"transition-left-to-right": false
+        },
+	"modules": [
+		"custom/skull",
+        "tray"
+	]
+},
+  "custom/skull": {
+    "format": ""
+  },
+
+  "tray": {
+    "spacing": 5
+  },
+
+  "group/audio": {
+	"orientation": "inherit",
+//	"drawer": {
+//		"transition-duration": 500,
+//		"transition-left-to-right": true
+//        },
+	"modules": [
+		"pulseaudio",
+        "pulseaudio#microphone"
+	]
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " {volume}%",
+    "format-icons": {
+      "headphone": "",
+      "headset": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pkill pavucontrol || pavucontrol -t 3",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "scroll-step": 5,
+    "tooltip": false
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "on-click": "pkill pavucontrol || pavucontrol -t 4",
+    "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+    "tooltip-format": "{source_volume}%"
+  },
+
+  "disk": {
+	"interval": 30,
+	"path": "/",
+	"format": "",
+	"tooltip-format": "DISK {path} ({percentage_used}%)\n{used} / {total}"
+  },
+
+  "cpu": {
+    "interval": 5,
+    "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",       /*  {usage}%  */
+    "format-alt": "",
+    "format-icons": [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"
+    ]
+  },
+  "memory#1": {
+    "format": "",
+    "tooltip-format": "RAM ({percentage}%)\n{used:0.1f}GiB / {total:0.1f}GiB",
+    "on-click": "kitty bashtop"
+  },
+
+  "memory": {
+    "format": "{icon}",
+    "tooltip-format": "RAM ({percentage}%)\n{used:0.1f}GiB / {total:0.1f}GiB ",
+    "format-icons": {
+      "default": [
+        "▁",
+        "▂",
+        "▃",
+        "▄",
+        "▅",
+        "▆",
+        "▇",
+        "█"
+      ]
+    },
+    "on-click": "kitty bashtop"
+  },
+
+  "custom/swaync": {
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "!",
+      "none": "",
+      "dnd-notification": "!",
+      "dnd-none": "",
+      "inhibited-notification": "-",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "-",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "command -v swaync-client",   /* Checks if swaync-client is installed  */
+    "exec": "swaync-client -swb",  /* Initial execution to fetch the state */
+    "on-click": "sleep 0.1 && swaync-client -t -sw",    /* Toggle SwayNC window  */
+    "on-click-right": "swaync-client -d -sw",   /* Toggle Do Not Disturb mode  */
+    "escape": true   /* Ensures HTML in icons is escaped  */
+  },
+
+  "mpris": {
+	"format": "{player_icon}",
+	"format-paused": "{status_icon}",
+//	"on-click": "",     /* default play/pause */
+//	"on-click-right": "playerctl play-pause",   /* default skip to next */
+    "on-scroll-up": "playerctl previous",
+    "on-scroll-down": "playerctl next",
+	"smooth-scrolling-threshold": 1,
+	"player-icons": {
+		"chromium": "",
+		"default": "",
+		"firefox": "",
+		"kdeconnect": "",
+		"mopidy": "",
+		"spotify": ""
+	},
+	"status-icons": {
+		"playing": "",
+		"paused": "",
+		"stopped": ""
+	},
+	// "ignored-players": ["firefox"]
+	"max-length": 30
+},
+
+  "custom/power": {
+    "format": "",  /* "⏻" */
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": ".config/waybar/power.xml",  /* Menu file in resources folder */
+    //
+    "menu-actions": {
+      "shutdown": "sudo shutdown -a now",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "hibernate": "systemctl hibernate",
+      "logout": "hyprctl dispatch exit"
+    }
+  }
+}

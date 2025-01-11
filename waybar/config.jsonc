@@ -1,230 +1,36 @@
 // -*- mode: jsonc -*-
 {
-    // "layer": "top",      // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 5, // Gaps between modules (4px)
-    // Choose the order of the modules
-    "modules-left": [
-        "temperature",
-        "clock"
+"include": "/home/purple/Documents/ArchSetup/waybar/modules.jsonc",
+"layer": "top",      // Waybar at top layer
+"spacing": 0, // Gaps between modules (4px)
+"margin-top": 5,
+"margin-left": 10,
+"margin-right": 10,
 
-    ],
-    "modules-center": [
-        "hyprland/workspaces#kanji"
-    ],
-    "modules-right": [
-        "custom/swaync",
-        "tray",
-        "pulseaudio",
-        "custom/power"
-    ],
+////"mode": "dock",
+//"exclusive": true,
+//"passthrough": false,
+//"position": "bottom", // Waybar position (top|bottom|left|right)
+//"fixed-center": true,
+//"ipc": true,
+//"height": 20, // Waybar height (to be removed for auto height)
+//"width": 1280, // Waybar width
 
-    //     "keyboard-state",     "mpd","power-profiles-daemon",        "backlight",
-    //        "sway/language",
-    //        "sway/mode",
-    //        "sway/scratchpad",
-    //        "custom/media",
+"modules-left": [
+    "group/clock",
+    "group/details"
+],
 
-    //        "custom/swaync",
+"modules-center": [
+    "hyprland/workspaces#kanji"
+],
 
-
-
-        "hyprland/workspaces#kanji": {
-            "disable-scroll": true,
-            "show-special": false,
-            "all-outputs": true,
-            "format": "{icon}",
-            "persistent-workspaces": {
-                "1": [],
-                "2": [],
-                "3": [],
-                "4": [],
-                "5": []
-            },
-            "format-icons": {
-                "1": "一",
-                "2": "二",
-                "3": "三",
-                "4": "四",
-                "5": "五",
-                "6": "六",
-                "7": "七",
-                "8": "八",
-                "9": "九",
-                "10": "十"
-            }
-        },
-
-    "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "   {:%H:%M:%S | %A  }",
-        "format-alt": "   {:%Y-%m-%d | %d %B %Y  }",
-        "interval": 1
-    },
-
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-
-    "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": ["", ""],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
-    },
-
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 5,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-    "tray": {
-        // "icon-size": 21,
-        "spacing": 10
-    },
-
-
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "{}% "
-    },
-
-//    "temperature": {
-//        // "thermal-zone": 2,
-//        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-//        "critical-threshold": 80,
-//        // "format-critical": "{temperatureC}°C {icon}",
-//        "format": " {icon} {temperatureC}°C",
-//        "format-icons": ["", "", ""]
-//    },
-
-
-    "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": "",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
-      }
-    },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-
-
-//    "custom/power": {
-//        "format": "⏻ ",
-//        "tooltip": false,
-//        "on-click": "~/.config/waybar/power-menu.sh"
-//    },
-
-//    "custom/power": {
-//        "format": "⏻ ",
-//        "tooltip": false,
-//        "menu": "on-click",
-//        "menu-file": "~/.config/waybar/power_menu.xml",
-//        "menu-actions": {
-//            "shutdown": "shutdown",
-//            "reboot": "reboot",
-//            "suspend": "systemctl suspend",
-//            "hibernate": "systemctl hibernate"
-//        }
-//    },
-//
-
-    "custom/swaync": {
-        "tooltip": false,
-        "tooltip-format": "Left  : Launch Notification Center\nRight : Do not Disturb",
-        "format": "{icon}",                                 // Display the icon and status
-        "format-icons": {
-            "notification": "!",
-            "none": " ",
-            "dnd-notification": "!",
-            "dnd-none": " ",
-            "inhibited-notification": "-",
-            "inhibited-none": " ",
-            "dnd-inhibited-notification": "-",
-            "dnd-inhibited-none": " "
-        },
-        "return-type": "json",
-        "exec-if": "command -v swaync-client",              // Checks if swaync-client is installed
-        "exec": "swaync-client -swb",                       // Initial execution to fetch the state
-        "on-click": "sleep 0.1 && swaync-client -t -sw",    // Toggle SwayNC window
-        "on-click-right": "swaync-client -d -sw",           // Toggle Do Not Disturb mode
-        "escape": true                                      // Ensures HTML in icons is escaped
-    }
+"modules-right": [
+    "group/tray2",
+    "mpris",
+    "custom/swaync",
+    "group/audio",
+    "custom/power"
+]
 }
 

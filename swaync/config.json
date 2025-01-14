@@ -32,8 +32,7 @@
        	"dnd",
         "buttons-grid",
 		"mpris",
-    	"volume", 
-   	 	"backlight",
+    	"volume",
         "title",
         "notifications"
     ],
@@ -57,9 +56,6 @@
         "volume": {
             "label": " "
         },
-        "backlight": {
-            "label": "Backlight"
-        },
         "buttons-grid": {
             "actions": [
                 {
@@ -75,7 +71,7 @@
                     "command": "systemctl suspend"
                 },
                 {
-                    "label":"",
+                    "label": "",
                     "command": "sudo shutdown -a now"
                 },
                 {

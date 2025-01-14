@@ -289,6 +289,10 @@
     color: @text-color
 }
 
+.widget-buttons-grid>flowbox>flowboxchild>button:hover>label {
+    color: #990000;
+}
+
 .widget-buttons-grid>flowbox>flowboxchild>button:hover {
     color: @highlight;
     text-shadow: 2px 2px 4px @background;

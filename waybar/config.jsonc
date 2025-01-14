@@ -1,4 +1,4 @@
-// -*- mode: jsonc -*-
+
 {
 "include": "/home/purple/Documents/ArchSetup/waybar/modules.jsonc",
 "layer": "top",      // Waybar at top layer
@@ -23,13 +23,20 @@
 
 "modules-center": [
     "hyprland/workspaces#kanji"
+
 ],
 
 "modules-right": [
     "group/tray2",
     "mpris",
+    "custom/separator",
+    "group/player",
+    "custom/separator",
+    "idle_inhibitor",
     "custom/swaync",
+    "custom/separator",
     "group/audio",
+    "custom/separator",
     "custom/power"
 ]
 }

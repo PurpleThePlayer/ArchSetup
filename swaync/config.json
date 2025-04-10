@@ -40,7 +40,7 @@
         "title": {
             "text": " Notifications",
             "clear-all-button": true,
-            "button-text": "Clear"
+            "button-text": ""
         },
         "dnd": {
             "text": " Silent"

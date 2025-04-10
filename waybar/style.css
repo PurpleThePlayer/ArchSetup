@@ -8,11 +8,13 @@
     font-size: 14px;        	/* font-size: 97%; */
 }
 
+
 window#waybar {
     background-color: transparent;      /* Background color */
     color: @text-color;                     /* Font color */
     text-shadow: 2px 2px 4px #000000;   /* Black shadow behind the text */
 }
+
 
 tooltip {
     background: rgba(0, 0, 0, 0.7);
@@ -21,10 +23,10 @@ tooltip {
     border-width: 2px;
 }
 
+
 tooltip label {
     color: @text-color;
 }
-
 
 
 #tray,
@@ -46,25 +48,13 @@ tooltip label {
     padding: 0px 5px;                       /* Padding left and right around text */
 }
 
-/*
-#custom-player.previous {
-    padding: 0px 0px 0px 5px;               */
-/* left padding *//*
-
-}
-*/
-
-/*
-#custom-swaync {
-    padding: 0px 5px 0px 0px;               *//* right padding around text (top, right, down, left) *//*
-}*/
-
 
 button {
     box-shadow: inset 0 -3px transparent;   /* Use box-shadow instead of border so the text isn't offset */
     border: none;       /* Avoid rounded borders under each button name */
     border-radius: 10px;
 }
+
 
 #workspaces button {
     color: @text-color;                 /* Font color */
@@ -76,21 +66,13 @@ button {
     text-shadow: 2px 2px 2px black;   /* Black shadow behind the text */
 }
 
+
 #workspaces button:hover,
 #workspaces button.urgent {
     background: @hover-bg;
 }
 
+
 #workspaces button.active {
     box-shadow: inset 0 -2px @text-color;   /* Underlined */
 }
-
-
-     /* transition-property: background-color;
-    transition-duration: .5s;
-    transition: all 0.3s ease;
-    border-radius: 10px;
-    border-bottom: 2px;
-    border-top: 2px;
-	border-color: #690000;
-	border-style: solid; */

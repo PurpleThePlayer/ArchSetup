@@ -210,3 +210,19 @@ Partitions
     clear
 
     lsblk
+
+
+
+Cleaning the root:
+    sudo pacman -Qdtq | sudo pacman -Rns -      # removes orphaned packages
+    pacman -Qdtq        # list orphaned packages
+    yay -Sc     Removes old versions of installed packages,
+                Removes cached packages that are no longer installed,
+                Keeps the cached versions of currently installed packages.
+                Cleans up AUR build directories (~/.cache/yay).
+Removes old versions of downloaded AUR package sources.
+    yay -Yc     Removes orphaned official repo packages and AUR packages, cleans leftover dependencies from AUR builds
+
+
+Optionally update and clean at once
+        yay -Syu && yay -Yc && yay -Sc

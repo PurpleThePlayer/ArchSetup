@@ -2,14 +2,14 @@
 @define-color border-color #690000;
 @define-color highlight #990000;
 @define-color background rgba(0, 0, 0, 0.8);
-@define-color background-second #111111;
+@define-color background-second transparent;
 @define-color hover #690000;
 @define-color text-color #690000;
 
 @define-color text-color-disabled rgba(150, 150, 150, 0.8);
 
 * {
-    font-family: "JetBrains Mono";
+    font-family: "JetBrainsMono Nerd Font Propo";
     font-weight: bold;
 }
 
@@ -181,7 +181,7 @@
 }
 
 .widget-title {
-    color: @border-color;
+    color: @text-color;
     background: @background-second;
     padding: 3px 6px;
     margin: 5px;
@@ -191,15 +191,18 @@
 }
 
 .widget-title>button {
-    font-size: 0.75rem;
     color: @text-color;
-    border-radius: 10px;
-	background: @background;
-	border: 1px solid @background;
+	background: transparent;
+    border: 1px solid transparent;
+    border-radius: 10px 0px;
+}
+
+.widget-title>button>label {
+    font-weight: bold;
 }
 
 .widget-title>button:hover {
-    border-color: @highlight;
+    border-color: @border-color;
     color: @highlight;
 
 }
@@ -222,7 +225,7 @@
 
 .widget-dnd>switch:checked {
     background: @highlight;
-    border: 1px solid @highlight;
+    border: 1px solid @border-color;
 }
 
 .widget-dnd>switch slider {
@@ -260,11 +263,23 @@
 .widget-mpris-player {
     padding: 2px;
     margin: 5px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.widget-mpris-player image {
+    color: @text-color;
+    background: transparent;
+}
+
+.widget-mpris-player button {
+    background: transparent;
 }
 
 .widget-mpris-title {
-    font-weight: 100;
-    font-size: 1rem
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 .widget-mpris-subtitle {
@@ -273,7 +288,7 @@
 
 .widget-buttons-grid {
     font-size: large;
-	color: @border-color;
+	color: @text-color;
     padding: 2px;
     margin: 5px;
     border-radius: 10px;
@@ -283,9 +298,9 @@
 
 .widget-buttons-grid>flowbox>flowboxchild>button {
     margin: 1px;
-    background: @background;
-    border-radius: 10px;
-    border: 1px solid @background;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 10px 0px;
     color: @text-color
 }
 
@@ -295,8 +310,8 @@
 
 .widget-buttons-grid>flowbox>flowboxchild>button:hover {
     color: @highlight;
-    text-shadow: 2px 2px 4px @background;
-    border-color: @highlight
+    text-shadow: 2px 2px 2px @background;
+    border-color: @border-color;
 }
 
 .widget-menubar>box>.menu-button-bar>button {
@@ -315,12 +330,20 @@
     margin: 5px 5px 5px 5px;
     border-radius: 10px;
     font-size: x-large;
-    color: @text-color
+}
+
+.widget-volume highlight {
+    background: @background;
+    border: 1px solid @border-color;
+}
+
+.widget-volume slider {
+    background: @text-color;
 }
 
 .widget-volume>box>button {
     background: @border-color;
-    border: none
+    border: none;
 }
 
 .per-app-volume {

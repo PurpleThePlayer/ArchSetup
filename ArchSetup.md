@@ -256,8 +256,14 @@ Launch the interactive GPT partitioning tool
         cat /etc/pacman.d/mirrorlist 
 
 ### 3.2. Install the system and essential packages (pre-configuration)
-Depending on your CPU, install `intel-ucode` for Intel CPU or `amd-ucode` for AMD. 
-Depending on your preferred text editor, install `nano`, `vim` or `vi` for example. 
+**Check what CPU you have using `lscpu`.**
+   
+      lscpu | grep -i "model name"
+
+Depending on your CPU, install `intel-ucode` for Intel CPU or `amd-ucode` for AMD.
+
+Depending on your preferred [text editor](https://itsfoss.com/command-line-text-editors-linux/), 
+install `nano`, `vim` or `neovim` for example. 
 
     pacstrap -K /mnt base base-devel linux linux-firmware intel-ucode nano
 

@@ -26,6 +26,16 @@ local cropclipboard = "hyprshot -m region -m active --clipboard-only"
 local notification = 'notify-send "I love Sven"'
 local notifications = "swaync-client -t -sw"
 
+-- Toggle floating for every window on the active workspace
+-- (replacement for the old, deprecated "workspaceopt allfloat")
+local function toggle_all_float()
+    local ws = hl.get_active_workspace()
+    local wins = hl.get_workspace_windows(ws)
+    for _, w in ipairs(wins) do
+        hl.dispatch(hl.dsp.window.float({ action = "toggle", window = w }))
+    end
+end
+
 
 
 --------------
@@ -62,14 +72,7 @@ hl.bind(mod3 .. " + P", hl.dsp.window.pseudo())                            -- to
 hl.bind(mod3 .. " + G", hl.dsp.group.toggle())              -- Toggle window group
 hl.bind(mod3 .. " + SHIFT + G", hl.dsp.group.next()) -- Cycle group window
 hl.bind(mod3 .. " + SPACE", hl.dsp.window.float({ action = "toggle" })) -- Toggle floating
-local function toggle_all_float()
-    local ws = hl.get_active_workspace()
-    local wins = hl.get_workspace_windows(ws)
-    for _, w in ipairs(wins) do
-        hl.dispatch(hl.dsp.window.float({ action = "toggle", window = w }))
-    end
-end
-hl.bind(mod3 .. " + SHIFT + SPACE", toggle_all_float)                      -- Toggle floating for all windows
+hl.bind(mod3 .. " + SHIFT + SPACE", toggle_all_float)                    -- Toggle floating for all windows
 
 
 
@@ -137,3 +140,18 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })  
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true }) -- Pause/play
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })  -- Play/pause
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })    -- Previous track
+
+-- Ideas you could add here:
+-- * Mouse side buttons:
+--   hl.bind(modkey .. " + mouse:275", hl.dsp.focus({ workspace = "e-1" }))   -- back button
+--   hl.bind(modkey .. " + mouse:276", hl.dsp.focus({ workspace = "e+1" }))   -- forward button
+-- * Named scratchpads (multiple special workspaces):
+--   hl.bind(modkey .. " + i", hl.dsp.workspace.toggle_special("magic"))     -- e.g. notes
+--   hl.bind(modkey .. " + u", hl.dsp.workspace.toggle_special("music"))     -- e.g. player
+--   (the unnamed togglespecial() above keeps using the default scratchpad)
+-- * Layout plugins (hyprland-plugins):
+--   - hyprgrass: touchpad gestures (pinch to switch workspaces, swipe up for scratchpad)
+--   - hyprscroller / hyprsplit: scroll or split layouts
+--   installed via hyprpm, then bound with their own dispatchers
+-- * Audio helpers:
+--   hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctld shift"))   -- switch player target

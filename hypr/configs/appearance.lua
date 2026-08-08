@@ -1,5 +1,5 @@
 --------------------------
--- Apperance / sections --
+-- Appearance / sections --
 --------------------------
 
 hl.config({
@@ -108,3 +108,17 @@ hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39, bezier = "a
 hl.animation({ leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
+
+-- Ideas you could add to hl.config:
+-- * Tighter feel when a window is alone on its workspace:
+--   general.no_gaps_when_only = true
+-- * Auto-group windows (e.g. terminals under one tab):
+--   group.auto_group = true,  group.groupbar.enabled = true
+-- * Wake the screen on any key/mouse activity:
+--   misc.key_press_enables_dpms = true,  misc.mouse_move_enables_dpms = true
+-- * Touchpad niceties:
+--   input.touchpad.scroll_factor = 0.5,  input.touchpad.accel_profile = "flat"
+-- * Smarter dwindle splitting:
+--   dwindle.smart_split = true,  dwindle.smart_resizing = true
+-- (Exact key names can change between Hyprland versions - check the wiki.)
+

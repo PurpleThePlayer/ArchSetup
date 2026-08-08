@@ -282,7 +282,7 @@
     "format": "",
     "tooltip": false,
     "menu": "on-click",
-    "menu-file": ".config/waybar/power.xml",
+    "menu-file": "~/.config/waybar/power.xml",
     "menu-actions": {
       "shutdown": "sudo shutdown -a now",
       "reboot": "reboot",
@@ -420,3 +420,11 @@
     "tooltip": false
   }
 }
+
+// Ideas for new modules (add to config.jsonc's modules-* lists and style in style.css):
+// * Media player:            "custom/spotify": { "format": "{}", "exec": "playerctl metadata -f '{{title}} - {{artist}}'", "on-click": "playerctl play-pause" }
+// * Weather (wttr.in):       "custom/weather": { "format": "{icon} {}", "exec": "curl -s wttr.in?format=1", "interval": 3600 }
+// * Calendar popup:          "custom/calendar": { "format": "{}", "exec": "date +'%a %d %b'", "on-click": "yad --calendar" }
+// * Active hyprland submap:  "hyprland/submap": {}
+// * Battery / backlight (laptop): "battery": { "format": "{icon} {capacity}%", "interval": 60 }, "backlight": { "format": "{percent}%" }
+// * Workspaces on-scroll:    add "on-scroll": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'" to hyprland/workspaces#kanji

@@ -1,2 +1,12 @@
-# Default ignored files
+# Editors / IDEs
 .idea
+*.iml
+*.swp
+*~
+
+# OS
+.DS_Store
+
+# Pacman leftovers
+*.pacnew
+*.pacsave

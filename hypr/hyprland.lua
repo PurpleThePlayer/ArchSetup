@@ -21,6 +21,8 @@ hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_IM_MODULE", "fcitx")
 hl.env("XMODIFIERS", "@im=fcitx")
 hl.env("SDL_IM_MODULE", "fcitx")
+hl.env("INPUT_METHOD", "fcitx")
+hl.env("GLFW_IM_MODULE", "fcitx")
 hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
 
 --------------------

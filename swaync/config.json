@@ -72,7 +72,7 @@
                 },
                 {
                     "label": "",
-                    "command": "sudo shutdown -a now"
+                    "command": "systemctl poweroff"
                 },
                 {
                     "label": "",

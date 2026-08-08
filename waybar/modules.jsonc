@@ -2,10 +2,12 @@
 // https://www.nerdfonts.com/cheat-sheet
 {
   "hyprland/workspaces#kanji": {
-    "disable-scroll": true,
+    "disable-scroll": false,
     "show-special": false,
     "all-outputs": true,
     "format": "{icon}",
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
     "persistent-workspaces": {
       "1": [],
       "2": [],
@@ -176,13 +178,13 @@
   },
   "disk": {
     "interval": 30,
-    "path": "/home",
+    "paths": ["/home"],
     "format": "󰋊",
     "tooltip-format": "{path} ({percentage_used}%)\n{used} / {total}"
   },
   "disk#2": {
     "interval": 30,
-    "path": "/",
+    "paths": ["/"],
     "format": "󰋊",
     "tooltip-format": "{path} ({percentage_used}%)\n{used} / {total}"
   },
@@ -284,7 +286,7 @@
     "menu": "on-click",
     "menu-file": "~/.config/waybar/power.xml",
     "menu-actions": {
-      "shutdown": "sudo shutdown -a now",
+      "shutdown": "systemctl poweroff",
       "reboot": "reboot",
       "suspend": "systemctl suspend",
       "hibernate": "systemctl hibernate",
@@ -427,4 +429,5 @@
 // * Calendar popup:          "custom/calendar": { "format": "{}", "exec": "date +'%a %d %b'", "on-click": "yad --calendar" }
 // * Active hyprland submap:  "hyprland/submap": {}
 // * Battery / backlight (laptop): "battery": { "format": "{icon} {capacity}%", "interval": 60 }, "backlight": { "format": "{percent}%" }
-// * Workspaces on-scroll:    add "on-scroll": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'" to hyprland/workspaces#kanji
+// * Workspaces on-scroll:   add "on-scroll-up"/"on-scroll-down" to hyprland/workspaces#kanji
+//                          (already enabled on the kanji module above; keep disable-scroll: false)

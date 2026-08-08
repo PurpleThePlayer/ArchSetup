@@ -1,3 +1,5 @@
+
+// https://www.nerdfonts.com/cheat-sheet
 {
   "hyprland/workspaces#kanji": {
     "disable-scroll": true,
@@ -64,8 +66,8 @@
     ]
   },
   "custom/skull": {
-    "format": "",
-    "on-click": "hyprctl dispatch togglespecialworkspace"
+    "format": "\uEF0E",
+    "on-click": "hyprctl dispatch 'hl.dsp.workspace.toggle_special()'"
   },
   "tray": {
     "spacing": 5,
@@ -134,10 +136,10 @@
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-muted": " {volume}%",
+    "format-muted": " {volume}%",
     "format-icons": {
       "headphone": "",
-      "headset": "",
+      "headset": "󰋎",
       "default": [
         "",
         "",
@@ -201,8 +203,8 @@
     ]
   },
   "memory#1": {
-    "format": "",
-    "format-alt": " {percentage}%",
+    "format": "\uEFC5",
+    "format-alt": "\uDB80\uDF5B{percentage}%",
     "tooltip-format": "RAM ({percentage}%)\n{used:0.1f}GiB / {total:0.1f}GiB",
     "on-click-right": "kitty bashtop"
   },
@@ -259,7 +261,7 @@
       "chromium": "",
       "default": "",
       "firefox": "",
-      "kdeconnect": "",
+      "kdeconnect": "",
       "mopidy": "",
       "spotify": "",
       "spotube": "",
@@ -286,7 +288,7 @@
       "reboot": "reboot",
       "suspend": "systemctl suspend",
       "hibernate": "systemctl hibernate",
-      "logout": "hyprctl dispatch exit"
+      "logout": "hyprctl dispatch 'hl.dsp.exit()'"
     }
   },
   "group/laptop": {
